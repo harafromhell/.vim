@@ -1,0 +1,48 @@
+set encoding=utf-8
+set fileencoding=utf-8
+
+syntax on
+set tabstop=4
+filetype on
+set nu
+set ruler
+set mouse=a
+set list
+set listchars=tab:→\ ,eol:↲,nbsp:␣,trail:•,extends:⟩,precedes:⟨
+
+" Search options
+" search as characters are entered
+set incsearch
+" highlight search
+set hlsearch
+
+" option for lightline
+set laststatus=2
+
+" Specify a directory for plugins
+" - For Neovim: ~/.local/share/nvim/plugged
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/puraguin')
+Plug 'itchyny/lightline.vim'
+Plug 'junegunn/seoul256.vim'
+" Initialize plugin system
+call plug#end()
+
+" Set 256 colors, must have xterm-256 export in .profile
+set t_Co=256
+" Lightline color
+	let g:lightline = {
+		\ 'colorscheme': 'seoul256',
+		\ }
+
+" Start colorsheme
+" seoul256 (dark):
+"   Range:   233 (darkest) ~ 239 (lightest)
+"   Default: 237
+let g:seoul256_background = 236
+colo seoul256
+
+
+"if !has('gui_running')
+"  set t_Co=256
+"endif
